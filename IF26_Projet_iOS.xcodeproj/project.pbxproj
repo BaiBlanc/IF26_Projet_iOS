@@ -24,6 +24,7 @@
 		21BA6D572385768400F2D13C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BA6D552385768400F2D13C /* LaunchScreen.storyboard */; };
 		21BA6D622385768500F2D13C /* IF26_Projet_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D612385768500F2D13C /* IF26_Projet_iOSTests.swift */; };
 		21BA6D6D2385768500F2D13C /* IF26_Projet_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D6C2385768500F2D13C /* IF26_Projet_iOSUITests.swift */; };
+		21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		21BA6D682385768500F2D13C /* IF26_Projet_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IF26_Projet_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA6D6C2385768500F2D13C /* IF26_Projet_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IF26_Projet_iOSUITests.swift; sourceTree = "<group>"; };
 		21BA6D6E2385768500F2D13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Menu.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				2195BD9A238D2A1700847973 /* Resultat.swift */,
 				2195BD92238D111100847973 /* TableViewCell.swift */,
 				2195BD94238D11BF00847973 /* Menu_plat_tv.swift */,
+				21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */,
 				2195BD96238D138A00847973 /* MenuViewController.swift */,
 				2195BDA0238D2B6A00847973 /* ModuleTableViewController.swift */,
 			);
@@ -290,6 +293,7 @@
 				2195BD95238D11BF00847973 /* Menu_plat_tv.swift in Sources */,
 				21BA6D4B2385767A00F2D13C /* AppDelegate.swift in Sources */,
 				2195BDA1238D2B6A00847973 /* ModuleTableViewController.swift in Sources */,
+				21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */,
 				2195BD93238D111100847973 /* TableViewCell.swift in Sources */,
 				2195BD9D238D2A1800847973 /* Resultat.swift in Sources */,
 				21BA6D4D2385767A00F2D13C /* SceneDelegate.swift in Sources */,
@@ -620,6 +624,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */,
+			);
+			currentVersion = 21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */;
+			path = Meilan.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 21BA6D3F2385767A00F2D13C /* Project object */;
 }
