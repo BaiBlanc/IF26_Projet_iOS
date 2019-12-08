@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    
+    var plats:[Int] = [1,2,3,4,5]
+    var sections:[Int] = [1,2,3,4,5,6]
+    @IBOutlet weak var Right_TableView: UITableView!
+    @IBOutlet weak var Left_TableView: UITableView!
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         var count:Int?
@@ -37,25 +45,35 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:UITableViewCell?
         
         if tableView == self.Left_TableView {
-            cell = Left_TableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath)
-            let previewDetail = sections[indexPath.row]
-            cell!.textLabel!.text = String(previewDetail)
+             let cell: SectionTableViewCell = Left_TableView.dequeueReusableCell(withIdentifier: SectionTableViewCell.identifier, for: indexPath) as! SectionTableViewCell
+            //                else {
+            //                fatalError("Unexpected Index Path")
+            //            }
+                        let previewDetail = sections[indexPath.row]
+                        cell.sectionLabel.text = "Section "+String(previewDetail)
+                        
+                        return cell
+
+            
             
         }
         
-        if tableView == self.Right_TableView {
-            cell = tableView.dequeueReusableCell(withIdentifier: "platCell", for: indexPath)
-            let previewDetail = plats[indexPath.row]
-            cell!.textLabel!.text = String(previewDetail)+"Section\(indexPath.section)"
+        else {// tableView == self.Right_TableView{
             
+            let cell:PlatTableViewCell = tableView.dequeueReusableCell(withIdentifier: PlatTableViewCell.identifier, for: indexPath) as! PlatTableViewCell
+            //                else {
+            //
+            //                fatalError("Unexpected Index Path")
+            //            }
+                        let previewDetail = plats[indexPath.row]
+                        cell.platLabel.text = String(previewDetail)+"Section\(indexPath.section)"
+                        
+                        return cell
+           
         }
         
-        
-        
-        return cell!
         
     }
     
@@ -63,23 +81,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(tableView == Right_TableView){
             return "Section \(section)"
         }
-        return nil
+        return "Categorie"
     }
     
-    var plats:[Int] = [1,2,3,4,5]
-    var sections:[Int] = [1,2,3,4,5,6]
-    @IBOutlet weak var Right_TableView: UITableView!
-    @IBOutlet weak var Left_TableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         Left_TableView.dataSource = self
         Left_TableView.delegate = self
-        Left_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "sectionCell")
+        Left_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        Left_TableView.register(SectionTableViewCell.self, forCellReuseIdentifier: "sectionCell")
         
         Right_TableView.dataSource = self
         Right_TableView.delegate = self
-        Right_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "platCell")
+        Right_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        Right_TableView.register(PlatTableViewCell.self, forCellReuseIdentifier: "platCell")
         // Do any additional setup after loading the view.
     }
     

@@ -5,7 +5,7 @@
         <attribute name="code" optional="YES" attributeType="String"/>
         <attribute name="nom" optional="YES" attributeType="String"/>
         <attribute name="prix" optional="YES" attributeType="String"/>
-        <attribute name="temps_prepa" optional="YES"/>
+        <attribute name="temps_prepa" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Carte" positionX="-63" positionY="-18" width="128" height="118"/>
