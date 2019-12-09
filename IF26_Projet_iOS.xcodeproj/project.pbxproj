@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */; };
+		21917130239D98A5008B12AC /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191712F239D98A5008B12AC /* PopUpViewController.swift */; };
 		2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */; };
 		2195BD97238D138A00847973 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD96238D138A00847973 /* MenuViewController.swift */; };
 		2195BD99238D249300847973 /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD98238D249300847973 /* TestTableViewController.swift */; };
@@ -18,7 +20,6 @@
 		21BA6D622385768500F2D13C /* IF26_Projet_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D612385768500F2D13C /* IF26_Projet_iOSTests.swift */; };
 		21BA6D6D2385768500F2D13C /* IF26_Projet_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D6C2385768500F2D13C /* IF26_Projet_iOSUITests.swift */; };
 		21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */; };
-		21FE3CB92399558800094CB0 /* PlatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */; };
 		21FE3CBB23995E6500094CB0 /* Menu_plat_tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CBA23995E6500094CB0 /* Menu_plat_tv.swift */; };
 		21FE3CBD2399660900094CB0 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2191712F239D98A5008B12AC /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu1_TableViewController.swift; sourceTree = "<group>"; };
 		2195BD96238D138A00847973 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2195BD98238D249300847973 /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				21BA6D4A2385767A00F2D13C /* AppDelegate.swift */,
 				21BA6D4C2385767A00F2D13C /* SceneDelegate.swift */,
 				21BA6D502385767A00F2D13C /* Main.storyboard */,
+				2191712F239D98A5008B12AC /* PopUpViewController.swift */,
 				21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */,
 				2195BD98238D249300847973 /* TestTableViewController.swift */,
 				21BA6D532385768400F2D13C /* Assets.xcassets */,
@@ -277,14 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21917130239D98A5008B12AC /* PopUpViewController.swift in Sources */,
 				21BA6D4B2385767A00F2D13C /* AppDelegate.swift in Sources */,
-				21FE3CB92399558800094CB0 /* PlatTableViewCell.swift in Sources */,
 				21FE3CBB23995E6500094CB0 /* Menu_plat_tv.swift in Sources */,
 				21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */,
 				21BA6D4D2385767A00F2D13C /* SceneDelegate.swift in Sources */,
 				2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */,
 				21FE3CBD2399660900094CB0 /* SectionTableViewCell.swift in Sources */,
 				2195BD97238D138A00847973 /* MenuViewController.swift in Sources */,
+				21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */,
 				2195BD99238D249300847973 /* TestTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

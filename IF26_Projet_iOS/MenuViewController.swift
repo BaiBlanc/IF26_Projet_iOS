@@ -67,10 +67,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //
             //                fatalError("Unexpected Index Path")
             //            }
-                        let previewDetail = plats[indexPath.row]
-                        cell.platLabel.text = String(previewDetail)+"Section\(indexPath.section)"
-                        
-                        return cell
+            let previewDetail = plats[indexPath.row]
+            cell.platLabel.text = String(previewDetail)+"Section\(indexPath.section)"
+            cell.sendSuperController(self)
+            if(indexPath.section == 0){
+                cell.addButton.isHidden = true
+                cell.detailButton.isHidden = false
+            }else{
+                cell.addButton.isHidden = false
+                cell.detailButton.isHidden = true
+            }
+            return cell
            
         }
         

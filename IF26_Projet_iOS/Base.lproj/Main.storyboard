@@ -27,14 +27,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-wJ-vwH">
-                                                    <rect key="frame" x="37" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-wJ-vwH">
+                                                    <rect key="frame" x="15" y="5" width="105" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0ZW-wJ-vwH" firstAttribute="top" secondItem="wvX-7b-1R0" secondAttribute="top" constant="5" id="Chb-b0-aMY"/>
+                                                <constraint firstAttribute="bottom" secondItem="0ZW-wJ-vwH" secondAttribute="bottom" constant="5" id="XTa-Ez-PKW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="sectionLabel" destination="0ZW-wJ-vwH" id="PjH-I6-PeW"/>
@@ -69,7 +72,7 @@
                                                     <rect key="frame" x="201" y="12" width="31" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" backgroundImage="plus" catalog="system">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
@@ -82,6 +85,9 @@
                                                     <state key="normal" title="Add details">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="detailOnClick:" destination="ndR-pT-MvM" eventType="touchUpInside" id="ep1-OP-zSn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -107,6 +113,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ai8-Ek-Sya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="698.39999999999998" y="-432.23388305847078"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="9gZ-UL-ZWW">
+            <objects>
+                <viewController storyboardIdentifier="detailPopUpID" id="u1c-dj-dDm" customClass="PopUpViewController" customModule="IF26_Projet_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="buz-pV-oez">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzV-6b-jiK">
+                                <rect key="frame" x="67" y="172" width="240" height="294"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qC6-Xq-uak">
+                                        <rect key="frame" x="105" y="132" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Ok">
+                                            <color key="titleColor" red="0.99910945595854928" green="0.99910945595854928" blue="0.99910945595854928" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="CloseOnClick:" destination="u1c-dj-dDm" eventType="touchUpInside" id="sxd-PQ-GRO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PN-Zw-Rux">
+                                        <rect key="frame" x="99" y="84" width="39" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AzV-6b-jiK" firstAttribute="centerX" secondItem="buz-pV-oez" secondAttribute="centerX" id="Yye-nv-Bun"/>
+                            <constraint firstItem="UJO-F2-6uq" firstAttribute="bottom" secondItem="AzV-6b-jiK" secondAttribute="bottom" constant="201" id="eIJ-Cb-Nvu"/>
+                            <constraint firstItem="AzV-6b-jiK" firstAttribute="leading" secondItem="UJO-F2-6uq" secondAttribute="leading" constant="67" id="gvm-1m-HZl"/>
+                            <constraint firstItem="AzV-6b-jiK" firstAttribute="top" secondItem="UJO-F2-6uq" secondAttribute="top" constant="172" id="wqA-hS-m4r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UJO-F2-6uq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMj-5Y-y4v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1501.5999999999999" y="-418.74062968515744"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ofd-zW-DMK">
