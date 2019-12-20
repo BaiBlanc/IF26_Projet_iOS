@@ -9,8 +9,8 @@
 import UIKit
 
 class PopUpViewController: UIViewController {
-
     
+    @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -20,6 +20,7 @@ class PopUpViewController: UIViewController {
     
     @IBAction func CloseOnClick(_ sender: UIButton) {
     //        self.view.removeFromSuperview()
+        self.sendText()
             self.removeAnimate()
     }
     
@@ -42,6 +43,13 @@ class PopUpViewController: UIViewController {
                 self.view.removeFromSuperview()
             }
         })
+    }
+    
+    func sendText(){
+        let superVC = self.parent as! MenuViewController
+        let text:String = self.textField.text!
+        print(text)
+        superVC.updatePlat(plat: text)
     }
     /*
     // MARK: - Navigation

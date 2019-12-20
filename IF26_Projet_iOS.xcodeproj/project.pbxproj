@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2105CA75239FABB1002444CA /* MeilanDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */; };
+		2105CA77239FAE71002444CA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105CA76239FAE71002444CA /* Menu.swift */; };
+		218921EC23A29EEE00CA5A44 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 218921EB23A29EEE00CA5A44 /* libsqlite3.0.tbd */; };
+		218921F423A2A23300CA5A44 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218921F323A2A23200CA5A44 /* EnterViewController.swift */; };
+		218921F623A2A59900CA5A44 /* SqliteDB in Resources */ = {isa = PBXBuildFile; fileRef = 218921F523A2A59900CA5A44 /* SqliteDB */; };
+		218F291823ABB61000B002FC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291623ABB60F00B002FC /* Command.swift */; };
+		218F291A23AD05D800B002FC /* Commande.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291923AD05D700B002FC /* Commande.swift */; };
 		21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */; };
 		21917130239D98A5008B12AC /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191712F239D98A5008B12AC /* PopUpViewController.swift */; };
 		2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */; };
@@ -19,8 +26,6 @@
 		21BA6D572385768400F2D13C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BA6D552385768400F2D13C /* LaunchScreen.storyboard */; };
 		21BA6D622385768500F2D13C /* IF26_Projet_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D612385768500F2D13C /* IF26_Projet_iOSTests.swift */; };
 		21BA6D6D2385768500F2D13C /* IF26_Projet_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D6C2385768500F2D13C /* IF26_Projet_iOSUITests.swift */; };
-		21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */; };
-		21FE3CBB23995E6500094CB0 /* Menu_plat_tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CBA23995E6500094CB0 /* Menu_plat_tv.swift */; };
 		21FE3CBD2399660900094CB0 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2105CA74239FABB1002444CA /* MeilanDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeilanDB.xcdatamodel; sourceTree = "<group>"; };
+		2105CA76239FAE71002444CA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		218921E923A293A300CA5A44 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		218921EB23A29EEE00CA5A44 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		218921ED23A29F2D00CA5A44 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		218921F323A2A23200CA5A44 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		218921F523A2A59900CA5A44 /* SqliteDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SqliteDB; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SqliteDB"; sourceTree = "<group>"; };
+		218F291723ABB60F00B002FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = IF26_Projet_iOS/Base.lproj/Command.swift; sourceTree = SOURCE_ROOT; };
+		218F291923AD05D700B002FC /* Commande.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commande.swift; sourceTree = "<group>"; };
 		2191712F239D98A5008B12AC /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu1_TableViewController.swift; sourceTree = "<group>"; };
 		2195BD96238D138A00847973 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -59,9 +73,7 @@
 		21BA6D682385768500F2D13C /* IF26_Projet_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IF26_Projet_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BA6D6C2385768500F2D13C /* IF26_Projet_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IF26_Projet_iOSUITests.swift; sourceTree = "<group>"; };
 		21BA6D6E2385768500F2D13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Menu.xcdatamodel; sourceTree = "<group>"; };
 		21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatTableViewCell.swift; sourceTree = "<group>"; };
-		21FE3CBA23995E6500094CB0 /* Menu_plat_tv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu_plat_tv.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Menu_plat_tv.swift"; sourceTree = "<group>"; };
 		21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218921EC23A29EEE00CA5A44 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +103,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		218921E823A293A300CA5A44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				218921EB23A29EEE00CA5A44 /* libsqlite3.0.tbd */,
+				218921E923A293A300CA5A44 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		218921F723A4E85400CA5A44 /* trash */ = {
+			isa = PBXGroup;
+			children = (
+				218921ED23A29F2D00CA5A44 /* Bridging-Header.h */,
+				218921F323A2A23200CA5A44 /* EnterViewController.swift */,
+				218F291623ABB60F00B002FC /* Command.swift */,
+			);
+			path = trash;
+			sourceTree = "<group>";
+		};
 		21BA6D3E2385767A00F2D13C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +129,7 @@
 				21BA6D602385768500F2D13C /* IF26_Projet_iOSTests */,
 				21BA6D6B2385768500F2D13C /* IF26_Projet_iOSUITests */,
 				21BA6D482385767A00F2D13C /* Products */,
+				218921E823A293A300CA5A44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,20 +146,23 @@
 		21BA6D492385767A00F2D13C /* IF26_Projet_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				218921F723A4E85400CA5A44 /* trash */,
 				21BA6D4A2385767A00F2D13C /* AppDelegate.swift */,
 				21BA6D4C2385767A00F2D13C /* SceneDelegate.swift */,
 				21BA6D502385767A00F2D13C /* Main.storyboard */,
+				218F291923AD05D700B002FC /* Commande.swift */,
 				2191712F239D98A5008B12AC /* PopUpViewController.swift */,
 				21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */,
 				2195BD98238D249300847973 /* TestTableViewController.swift */,
 				21BA6D532385768400F2D13C /* Assets.xcassets */,
+				218921F523A2A59900CA5A44 /* SqliteDB */,
 				21BA6D552385768400F2D13C /* LaunchScreen.storyboard */,
 				21BA6D582385768400F2D13C /* Info.plist */,
 				2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */,
-				21FE3CBA23995E6500094CB0 /* Menu_plat_tv.swift */,
-				21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */,
+				2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */,
 				2195BD96238D138A00847973 /* MenuViewController.swift */,
 				21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */,
+				2105CA76239FAE71002444CA /* Menu.swift */,
 			);
 			path = IF26_Projet_iOS;
 			sourceTree = "<group>";
@@ -253,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218921F623A2A59900CA5A44 /* SqliteDB in Resources */,
 				21BA6D572385768400F2D13C /* LaunchScreen.storyboard in Resources */,
 				21BA6D542385768400F2D13C /* Assets.xcassets in Resources */,
 				21BA6D522385767A00F2D13C /* Main.storyboard in Resources */,
@@ -281,15 +318,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				21917130239D98A5008B12AC /* PopUpViewController.swift in Sources */,
+				2105CA75239FABB1002444CA /* MeilanDB.xcdatamodeld in Sources */,
 				21BA6D4B2385767A00F2D13C /* AppDelegate.swift in Sources */,
-				21FE3CBB23995E6500094CB0 /* Menu_plat_tv.swift in Sources */,
-				21FE3CB723994A1400094CB0 /* Meilan.xcdatamodeld in Sources */,
 				21BA6D4D2385767A00F2D13C /* SceneDelegate.swift in Sources */,
+				218F291A23AD05D800B002FC /* Commande.swift in Sources */,
+				218921F423A2A23300CA5A44 /* EnterViewController.swift in Sources */,
+				2105CA77239FAE71002444CA /* Menu.swift in Sources */,
 				2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */,
 				21FE3CBD2399660900094CB0 /* SectionTableViewCell.swift in Sources */,
 				2195BD97238D138A00847973 /* MenuViewController.swift in Sources */,
 				21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */,
 				2195BD99238D249300847973 /* TestTableViewController.swift in Sources */,
+				218F291823ABB61000B002FC /* Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +365,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		218F291623ABB60F00B002FC /* Command.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				218F291723ABB60F00B002FC /* Base */,
+			);
+			name = Command.swift;
+			sourceTree = "<group>";
+		};
 		21BA6D502385767A00F2D13C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,6 +518,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.utt.if26.IF26-Projet-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,6 +537,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.utt.if26.IF26-Projet-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -614,13 +666,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		21FE3CB523994A1400094CB0 /* Meilan.xcdatamodeld */ = {
+		2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */,
+				2105CA74239FABB1002444CA /* MeilanDB.xcdatamodel */,
 			);
-			currentVersion = 21FE3CB623994A1400094CB0 /* Menu.xcdatamodel */;
-			path = Meilan.xcdatamodeld;
+			currentVersion = 2105CA74239FABB1002444CA /* MeilanDB.xcdatamodel */;
+			path = MeilanDB.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

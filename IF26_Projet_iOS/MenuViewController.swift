@@ -11,12 +11,17 @@ import CoreData
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    
-    var plats:[Int] = [1,2,3,4,5]
-    var sections:[Int] = [1,2,3,4,5,6]
+    let categories = ["PLAT","ENTREE","ACCOMPAGNEMENT","DESSERT","BOISSON"]
+    var plats: [Any]?
+    var boissons = [Dictionary<String,String>()]
+    var accompagnements = [Dictionary<String,String>()]
+    var desserts = [Dictionary<String,String>()]
+    var entrees = [Dictionary<String,String>()]
     @IBOutlet weak var Right_TableView: UITableView!
     @IBOutlet weak var Left_TableView: UITableView!
     
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var PlatImageView: UIImageView!
     
     func numberOfSections(in tableView: UITableView) -> Int {
         var count:Int?
@@ -25,7 +30,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         if tableView == self.Right_TableView {
-            count =  sections.count
+            count =  self.categories.count
         }
         return count!
     }
@@ -34,25 +39,39 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var count:Int?
         
         if tableView == self.Left_TableView {
-            count = sections.count
+            count = self.categories.count
         }
         
         if tableView == self.Right_TableView {
-            count =  plats.count
+            switch section{
+            case 0:
+                count = 1
+            case 1:
+                count = self.entrees.count
+            case 2:
+                count = self.accompagnements.count
+            case 3:
+                count = self.desserts.count
+            case 4:
+                count = self.boissons.count
+                  
+            default:
+                count = 0
+                
+            }
         }
         
         return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if tableView == self.Left_TableView {
              let cell: SectionTableViewCell = Left_TableView.dequeueReusableCell(withIdentifier: SectionTableViewCell.identifier, for: indexPath) as! SectionTableViewCell
             //                else {
             //                fatalError("Unexpected Index Path")
             //            }
-                        let previewDetail = sections[indexPath.row]
-                        cell.sectionLabel.text = "Section "+String(previewDetail)
+//                        cell.sectionLabel.text = "Section "+String(previewDetail)
+            cell.sectionLabel.text = categories[indexPath.row]
                         
                         return cell
 
@@ -67,15 +86,58 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //
             //                fatalError("Unexpected Index Path")
             //            }
-            let previewDetail = plats[indexPath.row]
-            cell.platLabel.text = String(previewDetail)+"Section\(indexPath.section)"
+          
+            
             cell.sendSuperController(self)
             if(indexPath.section == 0){
                 cell.addButton.isHidden = true
                 cell.detailButton.isHidden = false
-            }else{
+                cell.quantityLabel.isHidden = true
+                cell.minusButton.isHidden = true
+                cell.platLabel.text = "Plat"
+                cell.priceLabel.text = "Price"
+            }else {
                 cell.addButton.isHidden = false
+                cell.minusButton.isHidden = false
                 cell.detailButton.isHidden = true
+                cell.quantityLabel.isHidden = false
+                switch indexPath.section{
+                case 1:
+                    if self.entrees.count > 0 {
+                        var i = self.entrees[indexPath.row]
+                        cell.platLabel.text = i["name"]
+                            cell.priceLabel.text = i["price"]
+                        cell.idLabel.text = i["id"]
+                }
+                    
+                case 2:
+                if self.accompagnements.count > 0 {
+                    var i = self.accompagnements[indexPath.row]
+                        cell.platLabel.text = i["name"]
+                        cell.priceLabel.text = i["price"]
+                    cell.idLabel.text = i["id"]
+
+                }
+                case 3:
+                    if self.desserts.count > 0 {
+                        var i = self.desserts[indexPath.row]
+                            cell.platLabel.text = i["name"]
+                            cell.priceLabel.text = i["price"]
+                        cell.idLabel.text = i["id"]
+
+                    }
+                case 4:
+                    if self.boissons.count > 0 {
+                        var i = self.boissons[indexPath.row]
+                            cell.platLabel.text = i["name"]
+                            cell.priceLabel.text = i["price"]
+                        cell.idLabel.text = i["id"]
+
+                    }
+                default:
+                    print("Too many sections")
+                }
+                
             }
             return cell
            
@@ -86,7 +148,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView (_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         if(tableView == Right_TableView){
-            return "Section \(section)"
+            return self.categories[section]
         }
         return "Categorie"
     }
@@ -94,12 +156,16 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.initialiseMenu()
+        self.fetchMenu()
+        self.constructMenuDict()
+        self.printMenu()
+        Left_TableView.rowHeight = 80
         Left_TableView.dataSource = self
         Left_TableView.delegate = self
         Left_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 //        Left_TableView.register(SectionTableViewCell.self, forCellReuseIdentifier: "sectionCell")
-        
+        Right_TableView.rowHeight = 100
         Right_TableView.dataSource = self
         Right_TableView.delegate = self
         Right_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -143,4 +209,110 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     */
 
+}
+extension MenuViewController{
+    func initialiseMenu(){
+        let menu = Menu()
+        menu.addTestData()
+    }
+    
+    func fetchMenu()  {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Plat")
+        request.returnsObjectsAsFaults = false
+        do{
+            self.plats = try context.fetch(request)
+            
+        }catch{
+            print("Error: impossible to fetch the request")
+        }
+     
+    }
+    func constructMenuDict(){
+        if self.plats!.count > 0 {
+            for plat in self.plats as! [Plat]{
+                switch plat.category!{
+                case "ENTREE":
+                    if(self.entrees[0] == [:]){
+                       self.entrees[0] = ["id":plat.id!,"name":plat.name!,"price":String(plat.price)]
+                   }else{
+                       self.entrees.append(["id":plat.id!,"name":plat.name!,"price":String(plat.price)])
+                   }
+                case "ACCOMPAGNEMENT":
+                    if(self.accompagnements[0] == [:]){
+                        self.accompagnements[0] = ["id":plat.id!,"name":plat.name!,"price":String(plat.price)]
+                    }else{
+                        self.accompagnements.append(["id":plat.id!,"name":plat.name!,"price":String(plat.price)])
+                    }
+                   
+                case "DESSERT":
+                     if(self.desserts[0] == [:]){
+                           self.desserts[0] = ["id":plat.id!,"name":plat.name!,"price":String(plat.price)]
+                       }else{
+                           self.desserts.append(["id":plat.id!,"name":plat.name!,"price":String(plat.price)])
+                       }
+                    
+                case "BOISSON":
+                    
+                    if(self.boissons[0] == [:]){
+                          self.boissons[0] = ["id":plat.id!,"name":plat.name!,"price":String(plat.price)]
+                      }else{
+                          self.boissons.append(["id":plat.id!,"name":plat.name!,"price":String(plat.price)])
+                      }
+                default:
+                    var plat_id:String = ""
+                     var plat_name:String = ""
+                     var plat_price:String = ""
+                    if let id = plat.value(forKey: "id") as? String{
+                        plat_id = id
+                    }
+                    if let price = plat.value(forKey: "price") as? String{
+                        plat_price = price
+                    }
+                    if let name = plat.value(forKey: "name") as? String{
+                        plat_name = name
+                    }
+                    print("Error: Category no correspondant")
+                    print(plat)
+                
+               }
+               
+           }
+       }
+    }
+    func printMenu(){
+        
+        
+        
+        print("Boissons")
+        print(self.boissons)
+        for i in self.boissons as [Dictionary<String,String>]{
+            
+            print("name: \(i["name"]!) price: \(i["price"]!)")
+        }
+        print(self.entrees)
+
+        print("Entrees")
+        for i in self.entrees as [Dictionary<String,String>]{
+            
+            print("name: \(i["name"]!) price: \(i["price"]!)")
+        }
+        print("Accopagnements")
+        for i in self.accompagnements as [Dictionary<String,String>]{
+            
+            print("name: \(i["name"]!) price: \(i["price"]!)")
+        }
+        print("Desserts")
+        for i in self.desserts as [Dictionary<String,String>]{
+             
+            print("name: \(i["name"]!) price: \(i["price"]!)")
+        }
+    }
+    
+    func updatePlat(plat:String){
+        self.textLabel.text = plat
+    }
+    
 }
