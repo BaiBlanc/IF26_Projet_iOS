@@ -33,6 +33,7 @@ class Menu{
                     let results = try context.fetch(request)
                     
                     if results.count == 0 {
+                        print("No menu, need initialization!!!")
                             for i in 1...25{
                                 let plat = NSEntityDescription.insertNewObject(forEntityName: "Plat",into: context) as! Plat
                                         
@@ -43,7 +44,7 @@ class Menu{
                                 plat.category = self.categories[i%4]
                                 plat.id = String(i)
                             }
-                            
+                        try context.save()
                     }
                     
                 }catch{

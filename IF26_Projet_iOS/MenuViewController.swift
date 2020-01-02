@@ -13,6 +13,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let categories = ["PLAT","ENTREE","ACCOMPAGNEMENT","DESSERT","BOISSON"]
     var plats: [Any]?
+    var commande:Commande? = nil
     var boissons = [Dictionary<String,String>()]
     var accompagnements = [Dictionary<String,String>()]
     var desserts = [Dictionary<String,String>()]
@@ -20,8 +21,31 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var Right_TableView: UITableView!
     @IBOutlet weak var Left_TableView: UITableView!
     
+    @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var PlatImageView: UIImageView!
+    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            self.commande = Commande()
+            self.initialiseMenu()
+            self.fetchMenu()
+            self.constructMenuDict()
+            self.printMenu()
+            Left_TableView.rowHeight = 80
+            Left_TableView.dataSource = self
+            Left_TableView.delegate = self
+            Left_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    //        Left_TableView.register(SectionTableViewCell.self, forCellReuseIdentifier: "sectionCell")
+            Right_TableView.rowHeight = 100
+            Right_TableView.dataSource = self
+            Right_TableView.delegate = self
+            Right_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    //        Right_TableView.register(PlatTableViewCell.self, forCellReuseIdentifier: "platCell")
+            // Do any additional setup after loading the view.
+        
+            
+        }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         var count:Int?
@@ -86,9 +110,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //
             //                fatalError("Unexpected Index Path")
             //            }
-          
+            //let CellIdentifier:String = "identifier\(indexPath.section)-\(indexPath.row)"
             
             cell.sendSuperController(self)
+            cell.commande = self.commande
+            cell.section = indexPath.section
             if(indexPath.section == 0){
                 cell.addButton.isHidden = true
                 cell.detailButton.isHidden = false
@@ -98,9 +124,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.priceLabel.text = "Price"
             }else {
                 cell.addButton.isHidden = false
-                cell.minusButton.isHidden = false
+                cell.minusButton.isHidden = true
                 cell.detailButton.isHidden = true
                 cell.quantityLabel.isHidden = false
+//                cell.quantityLabel.text = String(self.commande?.getQuantity(category: category, id: id))
                 switch indexPath.section{
                 case 1:
                     if self.entrees.count > 0 {
@@ -108,6 +135,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         cell.platLabel.text = i["name"]
                             cell.priceLabel.text = i["price"]
                         cell.idLabel.text = i["id"]
+                        cell.updateQuantity(section:indexPath.section,id:i["id"]!)
                 }
                     
                 case 2:
@@ -116,6 +144,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         cell.platLabel.text = i["name"]
                         cell.priceLabel.text = i["price"]
                     cell.idLabel.text = i["id"]
+                    cell.updateQuantity(section:indexPath.section,id:i["id"]!)
+
 
                 }
                 case 3:
@@ -124,6 +154,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             cell.platLabel.text = i["name"]
                             cell.priceLabel.text = i["price"]
                         cell.idLabel.text = i["id"]
+                        cell.updateQuantity(section:indexPath.section,id:i["id"]!)
+
 
                     }
                 case 4:
@@ -132,6 +164,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             cell.platLabel.text = i["name"]
                             cell.priceLabel.text = i["price"]
                         cell.idLabel.text = i["id"]
+                        cell.updateQuantity(section:indexPath.section,id:i["id"]!)
+
 
                     }
                 default:
@@ -139,6 +173,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
                 
             }
+            
             return cell
            
         }
@@ -154,24 +189,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.initialiseMenu()
-        self.fetchMenu()
-        self.constructMenuDict()
-        self.printMenu()
-        Left_TableView.rowHeight = 80
-        Left_TableView.dataSource = self
-        Left_TableView.delegate = self
-        Left_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        Left_TableView.register(SectionTableViewCell.self, forCellReuseIdentifier: "sectionCell")
-        Right_TableView.rowHeight = 100
-        Right_TableView.dataSource = self
-        Right_TableView.delegate = self
-        Right_TableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        Right_TableView.register(PlatTableViewCell.self, forCellReuseIdentifier: "platCell")
-        // Do any additional setup after loading the view.
-    }
+    
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -199,15 +217,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.Left_TableView.selectRow(at: moveToIndexPath, animated: true, scrollPosition: UITableView.ScrollPosition.top)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func payOnClick(_ sender: UIButton) {
+        self.commande?.affiche()
+        performSegue(withIdentifier: "passCommand", sender: self)
     }
-    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! CommandViewController
+        vc.commande = self.commande!
+    }
 
 }
 extension MenuViewController{

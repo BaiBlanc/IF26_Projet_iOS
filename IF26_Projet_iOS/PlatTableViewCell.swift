@@ -13,6 +13,9 @@ class PlatTableViewCell: UITableViewCell {
     var quantity:Int = 0
     static let identifier = "platCell"
     var superController:UIViewController? = nil
+    var commande:Commande? = nil
+    var section:Int = 0
+    
     @IBOutlet weak var platImage: UIImageView!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
@@ -23,23 +26,68 @@ class PlatTableViewCell: UITableViewCell {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     
+    func configValue(section:Int,q:Int,plat:String,id:String,price:Float){
+        
+    }
     func sendSuperController(_ superController:UIViewController){
         self.superController = superController
     }
     
     @IBAction func minusOnClick(_ sender: UIButton) {
-        if (self.quantity>0){
-            self.quantity -= 1
+        let dict = [1:"entrees",2:"accompagements",3:"desserts",4:"boissons"]
+        let category:String = dict[self.section]!
+        let name = platLabel.text as! String
+        let price = Float(priceLabel.text as! String)
+        let id:String = idLabel.text!
+        
+        switch category{
+        case "entrees":
+            self.commande?.ajouteEntree(entree: name, quantity: -1, id: id, price: price!)
+        case "accompagements":
+            self.commande?.ajouteAccompagnement(accompagnement: name, quantity: -1, id: id, price: price!)
+        case "desserts":
+            self.commande?.ajouteDessert(dessert: name, quantity: -1, id: id, price: price!)
+        case "boissons":
+            self.commande?.ajouteBoisson(boisson: name, quantity: -1, id: id, price: price!)
+        default:
+            print("No such section:", section)
         }
-        self.updateQuantity()
+        
+        let quantity:Int = (commande?.getQuantity(category: category, id: id))!
+        self.quantityLabel.text = String(quantity)
+        if(quantity <= 0){
+            self.minusButton.isHidden = true
+
+        }
     }
     
     @IBAction func plusObClick(_ sender: UIButton) {
-        self.quantity += 1
+        let dict = [1:"entrees",2:"accompagements",3:"desserts",4:"boissons"]
+        let category:String = dict[self.section]!
+        let name = platLabel.text as! String
+        let price = Float(priceLabel.text as! String)
+        let id:String = idLabel.text!
         
-        print(self.platLabel.text,"+1")
-        print(self.quantity)
-        self.updateQuantity()
+        switch category{
+        case "entrees":
+            self.commande?.ajouteEntree(entree: name, quantity: 1, id: id, price: price!)
+        case "accompagements":
+            self.commande?.ajouteAccompagnement(accompagnement: name, quantity: 1, id: id, price: price!)
+        case "desserts":
+            self.commande?.ajouteDessert(dessert: name, quantity: 1, id: id, price: price!)
+        case "boissons":
+            self.commande?.ajouteBoisson(boisson: name, quantity: 1, id: id, price: price!)
+        default:
+            print("No such section:", section)
+        }
+        
+        let quantity:Int = (commande?.getQuantity(category: category, id: id))!
+        self.quantityLabel.text = String(quantity)
+        self.minusButton.isHidden = false
+
+        
+//        print(self.quantity)
+//        self.updateQuantity()
     }
     @IBAction func detailOnClick(_ sender: UIButton) {
         print("hhhh")
@@ -50,18 +98,27 @@ class PlatTableViewCell: UITableViewCell {
         popUpVC.view.frame = self.superController?.view.frame as! CGRect
         self.superController?.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self.superController)
+        popUpVC.commande = self.commande
         //todo chage alpha透明度 添加内容 关闭按钮
         
     }
-    func updateQuantity(){
-        self.quantityLabel.text = String(self.quantity)
-        
+    func updateQuantity(section:Int,id:String){
+        let dict = [1:"entrees",2:"accompagements",3:"desserts",4:"boissons"]
+        let category:String = dict[section]!
+        let quantity:Int = (commande?.getQuantity(category: category, id: id))!
+        self.quantityLabel.text = String(quantity)
+        if(quantity > 0){
+            self.minusButton.isHidden = false
+        }else{
+            self.minusButton.isHidden = true
+        }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 //        self.addButton.layer.masksToBounds = true
+        self.quantityLabel.text = String(0)
         self.addButton.layer.cornerRadius = self.addButton.frame.size.width/2
         self.minusButton.layer.cornerRadius = self.addButton.frame.size.width/2
         //self.addButton.layer.cornerRadius = 45.0
