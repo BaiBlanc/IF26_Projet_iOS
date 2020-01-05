@@ -13,14 +13,12 @@
 		218921F423A2A23300CA5A44 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218921F323A2A23200CA5A44 /* EnterViewController.swift */; };
 		218921F623A2A59900CA5A44 /* SqliteDB in Resources */ = {isa = PBXBuildFile; fileRef = 218921F523A2A59900CA5A44 /* SqliteDB */; };
 		218C007623BCEB2D009BFCE2 /* CommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C007523BCEB2C009BFCE2 /* CommandViewController.swift */; };
-		218C007823BD19B7009BFCE2 /* CommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C007723BD19B7009BFCE2 /* CommandTableViewCell.swift */; };
 		218F291823ABB61000B002FC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291623ABB60F00B002FC /* Command.swift */; };
 		218F291A23AD05D800B002FC /* Commande.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291923AD05D700B002FC /* Commande.swift */; };
 		2190B34D23BE8A0D00184BCC /* HistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190B34C23BE8A0C00184BCC /* HistoriesViewController.swift */; };
 		2190B34F23BE8EA500184BCC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190B34E23BE8EA500184BCC /* HistoryTableViewCell.swift */; };
 		21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */; };
 		21917130239D98A5008B12AC /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191712F239D98A5008B12AC /* PopUpViewController.swift */; };
-		2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */; };
 		2195BD97238D138A00847973 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD96238D138A00847973 /* MenuViewController.swift */; };
 		2195BD99238D249300847973 /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195BD98238D249300847973 /* TestTableViewController.swift */; };
 		21BA6D4B2385767A00F2D13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA6D4A2385767A00F2D13C /* AppDelegate.swift */; };
@@ -59,13 +57,11 @@
 		218921F323A2A23200CA5A44 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		218921F523A2A59900CA5A44 /* SqliteDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SqliteDB; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SqliteDB"; sourceTree = "<group>"; };
 		218C007523BCEB2C009BFCE2 /* CommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewController.swift; sourceTree = "<group>"; };
-		218C007723BD19B7009BFCE2 /* CommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTableViewCell.swift; sourceTree = "<group>"; };
 		218F291723ABB60F00B002FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = IF26_Projet_iOS/Base.lproj/Command.swift; sourceTree = SOURCE_ROOT; };
 		218F291923AD05D700B002FC /* Commande.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commande.swift; sourceTree = "<group>"; };
 		2190B34C23BE8A0C00184BCC /* HistoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriesViewController.swift; sourceTree = "<group>"; };
 		2190B34E23BE8EA500184BCC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		2191712F239D98A5008B12AC /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu1_TableViewController.swift; sourceTree = "<group>"; };
 		2195BD96238D138A00847973 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2195BD98238D249300847973 /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
 		21BA6D472385767A00F2D13C /* IF26_Projet_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IF26_Projet_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,9 +165,7 @@
 				218921F523A2A59900CA5A44 /* SqliteDB */,
 				21BA6D552385768400F2D13C /* LaunchScreen.storyboard */,
 				21BA6D582385768400F2D13C /* Info.plist */,
-				2195BD90238D0F8800847973 /* Menu1_TableViewController.swift */,
 				2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */,
-				218C007723BD19B7009BFCE2 /* CommandTableViewCell.swift */,
 				2195BD96238D138A00847973 /* MenuViewController.swift */,
 				21FE3CB82399558800094CB0 /* PlatTableViewCell.swift */,
 				2105CA76239FAE71002444CA /* Menu.swift */,
@@ -339,8 +333,6 @@
 				218921F423A2A23300CA5A44 /* EnterViewController.swift in Sources */,
 				2105CA77239FAE71002444CA /* Menu.swift in Sources */,
 				2190B34F23BE8EA500184BCC /* HistoryTableViewCell.swift in Sources */,
-				218C007823BD19B7009BFCE2 /* CommandTableViewCell.swift in Sources */,
-				2195BD91238D0F8800847973 /* Menu1_TableViewController.swift in Sources */,
 				21FE3CBD2399660900094CB0 /* SectionTableViewCell.swift in Sources */,
 				2195BD97238D138A00847973 /* MenuViewController.swift in Sources */,
 				21917128239D5DE3008B12AC /* PlatTableViewCell.swift in Sources */,

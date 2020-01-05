@@ -37,6 +37,10 @@ class PopUpViewController: UIViewController {
         self.removeAnimate()
     }
     
+    @IBAction func cancelOnClick(_ sender: UIButton) {
+        self.removeAnimate()
+    }
+    
     
     
     

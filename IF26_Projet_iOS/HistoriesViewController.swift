@@ -9,30 +9,42 @@
 import UIKit
 
 class HistoriesViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    var commande:Commande? = nil
     @IBOutlet weak var tableview: UITableView!
-    var commandArray = [String]()
+    var commandArray = [(time:String,detail:String)]()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("tableView reload")
+        self.updateHistories()
         return commandArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReuseIdentifier = "historyCell"
         let cell = tableview.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! HistoryTableViewCell
-        cell.commandLabel.text = commandArray[indexPath.row]
+        cell.timeLabel.text = commandArray[indexPath.row].time
+        cell.commandLabel.text = commandArray[indexPath.row].detail
+        cell.tableview = self.tableview
         return cell
     }
     
 
-   
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableview.reloadData()
+    }
+    func updateHistories(){
+        print( self.commandArray.count," --> ")
+        self.commandArray = self.commande!.fetchCommand()
+        print(self.commandArray.count)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.dataSource = self
         tableview.delegate = self
-        let commande = Commande()
-        commandArray = commande.fetchCommand()
+        self.commande = Commande()
+        self.updateHistories()
     }
     
 

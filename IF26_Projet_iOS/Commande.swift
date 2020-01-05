@@ -55,9 +55,12 @@ class Commande{
         }
     }
     func ajoutePlat(plat:String, quantity:Int,id:String, price:Float){
-        print(plat,quantity,id,price)
-        if(self.plats.count == 0 || plats[0] == [:]){
-            self.plats[0] = ["name":plat, "quantity":String(quantity),"id":id,"price":String(price)]
+        if(self.plats.count == 0){
+             self.plats.append(["name":plat, "quantity":String(quantity),"id":id,"price":String(price)])
+        }else if( self.plats[0] == [:]){
+            
+            self.accompagnements[0] = ["name":plat, "quantity":String(quantity),"id":id,"price":String(price)]
+            
         }else{
             
             self.plats.append(["name":plat, "quantity":String(quantity),"id":id,"price":String(price)])
@@ -172,6 +175,14 @@ class Commande{
          
     }
     
+    func reset(){
+        self.accompagnements.removeAll()
+        self.boissons.removeAll()
+        self.desserts.removeAll()
+        self.entrees.removeAll()
+        self.plats.removeAll()
+    }
+    
     func affiche(){
         print("---------Start Command---------------")
         print(self.accompagnements)
@@ -187,7 +198,7 @@ class Commande{
 extension Commande{
     func sendData(timestamp: Date, price:Float){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
 
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Command")
@@ -211,8 +222,8 @@ extension Commande{
         
     }
     
-    func fetchCommand() -> [String] {
-        var commandDetails = [String]()
+    func fetchCommand() -> [(time:String,detail:String)] {
+        var commandInfos = [(time:String,detail:String)]()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Command")
         request.returnsObjectsAsFaults = false
         do{
@@ -228,7 +239,7 @@ extension Commande{
                     let timestamp = c.timestamp!
                     let price = c.price
                     
-                    commandDetail = timestamp
+                    
                     print(timestamp)
                     
                     if(plats.count>0 && plats[0] != [:]){
@@ -268,7 +279,8 @@ extension Commande{
                     commandDetail = "\(commandDetail)\n$ \(price)"
                     print("$ \(price)")
                     
-                    commandDetails.append(commandDetail)
+                    
+                    commandInfos.insert((timestamp,commandDetail), at: 0)
 
                 }
                 
@@ -276,7 +288,7 @@ extension Commande{
         }catch{
             print("Error: impossible to fetch the request")
         }
-        return commandDetails
+        return commandInfos
     }
 
 }

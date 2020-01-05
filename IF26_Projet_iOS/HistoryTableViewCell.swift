@@ -7,16 +7,49 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var commandLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    var tableview:UITableView? = nil
+    var superController: HistoriesViewController? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func deleteOnClick(_ sender: UIButton) {
+        let timestamp:String = self.timeLabel.text!
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+               
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Command")
+        let predicate = NSPredicate(format: "timestamp== %@ ", timestamp)
+        request.predicate = predicate
+        do{
+            let commandes = try context.fetch(request)
+            
+            for command in commandes as! [Command]{
+                context.delete(command)
+            }
+            try context.save()
+        }catch{
+            print("Error: impossible to fetch the request")
+        }
+        let indexPath = tableview?.indexPath(for: sender.superview?.superview as! UITableViewCell)
+        tableview?.deleteRows(at: [indexPath!], with: .left)
+        
+//        tableview!.reloadData()
+        
+        
+    }
+    func sendSuperController(_ superController:HistoriesViewController){
+        self.superController = superController
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

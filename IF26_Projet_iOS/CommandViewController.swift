@@ -11,6 +11,8 @@ import UIKit
 class CommandViewController: UIViewController {
 
     var commande:Commande? = nil
+    var menuTableview:UITableView? = nil
+    
     var price:Float = 0.0
     let sections = ["Plat","Entree","Accompagnement","Dessert","Boisson"]
     @IBOutlet weak var tableview: UITableView!
@@ -33,8 +35,10 @@ class CommandViewController: UIViewController {
         
         commande?.affiche()
         let today = Date()
+        print(today)
         self.commande?.sendData(timestamp: today, price: self.price)
-        self.commande?.fetchCommand()
+        self.commande?.reset()
+        self.menuTableview?.reloadData()
     }
     
     func calculatePrice(){

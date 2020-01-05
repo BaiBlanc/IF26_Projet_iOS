@@ -46,6 +46,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
             
         }
+   
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         var count:Int?
@@ -225,6 +227,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CommandViewController
         vc.commande = self.commande!
+        vc.menuTableview = self.Right_TableView
     }
 
 }
