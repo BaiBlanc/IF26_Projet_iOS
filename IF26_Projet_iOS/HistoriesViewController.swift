@@ -9,6 +9,8 @@
 import UIKit
 
 class HistoriesViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var username = "Lemercier"
     var commande:Commande? = nil
     @IBOutlet weak var tableview: UITableView!
     var commandArray = [(time:String,detail:String)]()
@@ -48,6 +50,43 @@ class HistoriesViewController:  UIViewController, UITableViewDataSource, UITable
     }
     
 
+    @IBAction func exportOnClick(_ sender: UIButton) {
+        let fileName = "\(username).csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        var csvText = "command detail,timestamp\n"
+        let count = self.commandArray.count
+        if count > 0 {
+            for command in commandArray{
+                csvText.append("\(command.detail),\(command.time)\n")
+            }
+            
+            do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+                                
+                let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
+                vc.excludedActivityTypes = [
+                    UIActivity.ActivityType.assignToContact,
+                    UIActivity.ActivityType.saveToCameraRoll,
+                    UIActivity.ActivityType.postToFlickr,
+                    UIActivity.ActivityType.postToVimeo,
+                    UIActivity.ActivityType.postToTwitter,
+                    UIActivity.ActivityType.postToFacebook,
+                    UIActivity.ActivityType.openInIBooks
+                ]
+            present(vc, animated: true, completion: nil)
+
+            } catch {
+                
+                print("Failed to create file")
+                print("\(error)")
+            }
+        }else{
+            print("Error", "There is no data to export")
+        }
+        
+            
+        
+    }
     
 
 }

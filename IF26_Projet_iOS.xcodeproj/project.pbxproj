@@ -56,6 +56,7 @@
 		218921ED23A29F2D00CA5A44 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		218921F323A2A23200CA5A44 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		218921F523A2A59900CA5A44 /* SqliteDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SqliteDB; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SqliteDB"; sourceTree = "<group>"; };
+		218A361F23C493F2004CD36E /* MeilanDB 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MeilanDB 2.xcdatamodel"; sourceTree = "<group>"; };
 		218C007523BCEB2C009BFCE2 /* CommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewController.swift; sourceTree = "<group>"; };
 		218F291723ABB60F00B002FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = IF26_Projet_iOS/Base.lproj/Command.swift; sourceTree = SOURCE_ROOT; };
 		218F291923AD05D700B002FC /* Commande.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commande.swift; sourceTree = "<group>"; };
@@ -677,6 +678,7 @@
 		2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				218A361F23C493F2004CD36E /* MeilanDB 2.xcdatamodel */,
 				2105CA74239FABB1002444CA /* MeilanDB.xcdatamodel */,
 			);
 			currentVersion = 2105CA74239FABB1002444CA /* MeilanDB.xcdatamodel */;

@@ -235,6 +235,7 @@ extension MenuViewController{
     func initialiseMenu(){
         let menu = Menu()
         menu.addTestData()
+        
     }
     
     func fetchMenu()  {
