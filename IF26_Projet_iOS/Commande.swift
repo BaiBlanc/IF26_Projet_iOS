@@ -59,7 +59,7 @@ class Commande{
              self.plats.append(["name":plat, "quantity":String(quantity),"id":id,"price":String(price)])
         }else if( self.plats[0] == [:]){
             
-            self.accompagnements[0] = ["name":plat, "quantity":String(quantity),"id":id,"price":String(price)]
+            self.plats[0] = ["name":plat, "quantity":String(quantity),"id":id,"price":String(price)]
             
         }else{
             

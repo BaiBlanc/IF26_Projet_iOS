@@ -99,7 +99,6 @@ class PlatTableViewCell: UITableViewCell {
         self.superController?.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self.superController)
         popUpVC.commande = self.commande
-        //todo chage alpha透明度 添加内容 关闭按钮
         
     }
     func updateQuantity(section:Int,id:String){
@@ -119,6 +118,7 @@ class PlatTableViewCell: UITableViewCell {
         // Initialization code
 //        self.addButton.layer.masksToBounds = true
         self.quantityLabel.text = String(0)
+        self.detailButton.layer.cornerRadius = self.addButton.frame.size.width/8
         self.addButton.layer.cornerRadius = self.addButton.frame.size.width/2
         self.minusButton.layer.cornerRadius = self.addButton.frame.size.width/2
         //self.addButton.layer.cornerRadius = 45.0

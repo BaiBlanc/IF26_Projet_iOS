@@ -24,6 +24,7 @@ class HistoriesViewController:  UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReuseIdentifier = "historyCell"
         let cell = tableview.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! HistoryTableViewCell
+        cell.sendSuperController(self)
         cell.timeLabel.text = commandArray[indexPath.row].time
         cell.commandLabel.text = commandArray[indexPath.row].detail
         cell.tableview = self.tableview

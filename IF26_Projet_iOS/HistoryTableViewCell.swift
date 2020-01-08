@@ -22,6 +22,25 @@ class HistoryTableViewCell: UITableViewCell {
     }
 
     @IBAction func deleteOnClick(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Alert",
+                        message: "Are you sure you want to delete this history？", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "Delete", style: .default, handler: {
+            action in
+            self.delete(sender)
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.superController!.present(alertController, animated: true, completion: nil)
+        
+        
+        
+//        tableview!.reloadData()
+        
+        
+    }
+    
+    func delete(_ sender: UIButton){
         let timestamp:String = self.timeLabel.text!
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -42,11 +61,8 @@ class HistoryTableViewCell: UITableViewCell {
         }
         let indexPath = tableview?.indexPath(for: sender.superview?.superview as! UITableViewCell)
         tableview?.deleteRows(at: [indexPath!], with: .left)
-        
-//        tableview!.reloadData()
-        
-        
     }
+    
     func sendSuperController(_ superController:HistoriesViewController){
         self.superController = superController
     }

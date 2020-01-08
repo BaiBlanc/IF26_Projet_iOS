@@ -95,7 +95,7 @@
                                                         <action selector="minusOnClick:" destination="ndR-pT-MvM" eventType="touchUpInside" id="Lea-ik-Uzy"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-eZ-nxH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-eZ-nxH">
                                                     <rect key="frame" x="140" y="76" width="45" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="wqX-IP-R2x"/>
@@ -115,10 +115,11 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0m-Bn-9Th">
                                                     <rect key="frame" x="177" y="73" width="50" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
                                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <state key="normal" title="Add details">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <state key="normal" title="DIY">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="detailOnClick:" destination="ndR-pT-MvM" eventType="touchUpInside" id="ep1-OP-zSn"/>
@@ -182,8 +183,8 @@
                                     <segue destination="XYh-Ql-enb" kind="presentation" identifier="passCommand" id="2s6-ws-bxt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V98-CN-4lv">
-                                <rect key="frame" x="46" y="546" width="32" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V98-CN-4lv">
+                                <rect key="frame" x="46" y="546" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -202,7 +203,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6iS-6E-JPK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Menu" id="jAR-7W-UsW"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="book.fill" catalog="system" id="jAR-7W-UsW"/>
                     <connections>
                         <outlet property="Left_TableView" destination="QOG-sc-oxG" id="b2N-EZ-fep"/>
                         <outlet property="Right_TableView" destination="GdB-Bn-p3Z" id="lz8-n8-NZb"/>
@@ -304,7 +305,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="H3V-XP-iWZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My History" id="erF-36-RVn"/>
+                    <tabBarItem key="tabBarItem" title="My History" image="star.fill" catalog="system" id="erF-36-RVn"/>
                     <connections>
                         <outlet property="tableview" destination="Qli-27-ZeZ" id="Vdm-Ib-ds0"/>
                     </connections>
@@ -653,9 +654,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book.fill" catalog="system" width="64" height="50"/>
         <image name="minus.circle" catalog="system" width="64" height="60"/>
         <image name="plus.circle" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>

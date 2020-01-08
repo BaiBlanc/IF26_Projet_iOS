@@ -9,6 +9,7 @@
         <attribute name="plats" optional="YES" attributeType="Transformable"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="String"/>
+        <relationship name="command_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="user_command" inverseEntity="User"/>
     </entity>
     <entity name="Plat" representedClassName="Plat" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
@@ -27,10 +28,11 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="prenom" optional="YES" attributeType="String"/>
         <attribute name="tel" optional="YES" attributeType="String"/>
+        <relationship name="user_command" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Command" inverseName="command_user" inverseEntity="Command"/>
     </entity>
     <elements>
-        <element name="Command" positionX="81" positionY="18" width="128" height="163"/>
+        <element name="Command" positionX="81" positionY="18" width="128" height="178"/>
         <element name="Plat" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="User" positionX="225.453125" positionY="-30.6640625" width="128" height="118"/>
+        <element name="User" positionX="225.453125" positionY="-30.6640625" width="128" height="133"/>
     </elements>
 </model>
