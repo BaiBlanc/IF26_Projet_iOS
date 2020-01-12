@@ -67,7 +67,7 @@ class PlatTableViewCell: UITableViewCell {
         let name = platLabel.text as! String
         let price = Float(priceLabel.text as! String)
         let id:String = idLabel.text!
-        
+        print(category,name,price,id,self.commande)
         switch category{
         case "entrees":
             self.commande?.ajouteEntree(entree: name, quantity: 1, id: id, price: price!)

@@ -38,8 +38,8 @@ class Menu{
                                 let plat = NSEntityDescription.insertNewObject(forEntityName: "Plat",into: context) as! Plat
                                         
                                        //对象赋值
-                                       plat.name = "Gong Bao Chiken #\(i)"
-                                       plat.id = "chiken_\(i)"
+                                       plat.name = "\(self.categories[i%4]) #\(i/4+1)"
+                                       plat.id = "\(self.categories[i%4]) #\(i/4+1)"
                                         plat.price = 10.5+Double(i)
                                 plat.category = self.categories[i%4]
                                 plat.id = String(i)

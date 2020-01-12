@@ -118,7 +118,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.quantityLabel.isHidden = true
                 cell.minusButton.isHidden = true
                 cell.platLabel.text = "Plat"
-                cell.priceLabel.text = "$15"
+                cell.priceLabel.text = "15"
                 cell.platImage.image = UIImage(named: "Plat")
             }else {
                 cell.addButton.isHidden = false
@@ -131,41 +131,41 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if self.entrees.count > 0 {
                         var i = self.entrees[indexPath.row]
                         cell.platLabel.text = i["name"]
-                            cell.priceLabel.text = "$\(i["price"])"
+                            cell.priceLabel.text = "\(i["price"]!)"
                         cell.idLabel.text = i["id"]
                         cell.updateQuantity(section:indexPath.section,id:i["id"]!)
                         //We have 2 images of Entree in our assets, so %2 to distribute them
-                        cell.platImage.image = UIImage(named:"Entree\(indexPath.row%2+1)")
+                        cell.platImage.image = UIImage(named:"Entree\(indexPath.row%3+1)")
                 }
                     
                 case 2:
                 if self.accompagnements.count > 0 {
                     var i = self.accompagnements[indexPath.row]
                         cell.platLabel.text = i["name"]
-                        cell.priceLabel.text = "$\(i["price"])"
+                        cell.priceLabel.text = "\(i["price"]!)"
                     cell.idLabel.text = i["id"]
                     cell.updateQuantity(section:indexPath.section,id:i["id"]!)
-                    cell.platImage.image = UIImage(named:"Accompagnement\(indexPath.row%1+1)")
+                    cell.platImage.image = UIImage(named:"Accompagnement\(indexPath.row%2+1)")
 
                 }
                 case 3:
                     if self.desserts.count > 0 {
                         var i = self.desserts[indexPath.row]
                             cell.platLabel.text = i["name"]
-                            cell.priceLabel.text = "$\(i["price"])"
+                            cell.priceLabel.text = "\(i["price"]!)"
                         cell.idLabel.text = i["id"]
                         cell.updateQuantity(section:indexPath.section,id:i["id"]!)
-                        cell.platImage.image = UIImage(named:"Dessert\(indexPath.row%1+1)")
+                        cell.platImage.image = UIImage(named:"Dessert\(indexPath.row%3+1)")
 
                     }
                 case 4:
                     if self.boissons.count > 0 {
                         var i = self.boissons[indexPath.row]
                             cell.platLabel.text = i["name"]
-                            cell.priceLabel.text = "$\(i["price"])"
+                            cell.priceLabel.text = "\(i["price"]!)"
                         cell.idLabel.text = i["id"]
                         cell.updateQuantity(section:indexPath.section,id:i["id"]!)
-
+                        cell.platImage.image = UIImage(named:"Boisson\(indexPath.row%2+1)")
 
                     }
                 default:
