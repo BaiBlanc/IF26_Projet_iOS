@@ -134,7 +134,7 @@ class Commande{
             }){
                 let index = self.desserts.index(where: {item -> Bool in
                     return item["name"]==dessert})!
-                let new_quantity = Int(self.desserts[index]["quantity"]!)!+1
+                let new_quantity = Int(self.desserts[index]["quantity"]!)!+quantity
                 if(new_quantity == 0){
                     self.desserts.remove(at: index)
                 }else{
