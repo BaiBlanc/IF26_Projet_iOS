@@ -11,7 +11,6 @@
 		2105CA77239FAE71002444CA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105CA76239FAE71002444CA /* Menu.swift */; };
 		218921EC23A29EEE00CA5A44 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 218921EB23A29EEE00CA5A44 /* libsqlite3.0.tbd */; };
 		218921F423A2A23300CA5A44 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218921F323A2A23200CA5A44 /* EnterViewController.swift */; };
-		218921F623A2A59900CA5A44 /* SqliteDB in Resources */ = {isa = PBXBuildFile; fileRef = 218921F523A2A59900CA5A44 /* SqliteDB */; };
 		218C007623BCEB2D009BFCE2 /* CommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C007523BCEB2C009BFCE2 /* CommandViewController.swift */; };
 		218F291823ABB61000B002FC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291623ABB60F00B002FC /* Command.swift */; };
 		218F291A23AD05D800B002FC /* Commande.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F291923AD05D700B002FC /* Commande.swift */; };
@@ -55,7 +54,6 @@
 		218921EB23A29EEE00CA5A44 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		218921ED23A29F2D00CA5A44 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		218921F323A2A23200CA5A44 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
-		218921F523A2A59900CA5A44 /* SqliteDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SqliteDB; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SqliteDB"; sourceTree = "<group>"; };
 		218A361F23C493F2004CD36E /* MeilanDB 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MeilanDB 2.xcdatamodel"; sourceTree = "<group>"; };
 		218C007523BCEB2C009BFCE2 /* CommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewController.swift; sourceTree = "<group>"; };
 		218F291723ABB60F00B002FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = IF26_Projet_iOS/Base.lproj/Command.swift; sourceTree = SOURCE_ROOT; };
@@ -163,7 +161,6 @@
 				21FE3CBC2399660900094CB0 /* SectionTableViewCell.swift */,
 				2195BD98238D249300847973 /* TestTableViewController.swift */,
 				21BA6D532385768400F2D13C /* Assets.xcassets */,
-				218921F523A2A59900CA5A44 /* SqliteDB */,
 				21BA6D552385768400F2D13C /* LaunchScreen.storyboard */,
 				21BA6D582385768400F2D13C /* Info.plist */,
 				2105CA73239FABB1002444CA /* MeilanDB.xcdatamodeld */,
@@ -296,7 +293,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218921F623A2A59900CA5A44 /* SqliteDB in Resources */,
 				21BA6D572385768400F2D13C /* LaunchScreen.storyboard in Resources */,
 				21BA6D542385768400F2D13C /* Assets.xcassets in Resources */,
 				21BA6D522385767A00F2D13C /* Main.storyboard in Resources */,

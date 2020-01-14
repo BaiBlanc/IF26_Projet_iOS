@@ -27,7 +27,7 @@ class HistoryTableViewCell: UITableViewCell {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "Delete", style: .default, handler: {
             action in
-            self.delete(sender)
+                self.delete(sender)
         })
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
